@@ -1,0 +1,44 @@
+# Cola de notificaciones (la primera en entrar es la primera en salir)
+cola_notificaciones = [
+    {"hora": "10:15", "app": "Twitter", "mensaje": "Aprendé Python con nosotros"},
+    {"hora": "11:50", "app": "Facebook", "mensaje": "Tienes un nuevo amigo"},
+    {"hora": "12:30", "app": "Instagram", "mensaje": "Nueva historia disponible"},
+    {"hora": "13:45", "app": "Twitter", "mensaje": "Python es genial"},
+    {"hora": "14:10", "app": "Facebook", "mensaje": "Reacciona a esta publicación"},
+    {"hora": "15:20", "app": "WhatsApp", "mensaje": "Reunión a las 16"},
+    {"hora": "16:00", "app": "Twitter", "mensaje": "Hola mundo"},
+    {"hora": "17:05", "app": "Instagram", "mensaje": "Te mencionaron"}
+]
+
+# A) Eliminar todas las notificaciones de Facebook
+def eliminar_facebook(cola):
+    nueva_cola = []
+    for noti in cola:
+        if noti["app"] != "Facebook":
+            nueva_cola.append(noti)
+    return nueva_cola
+
+# B) Mostrar notificaciones de Twitter con la palabra "Python" (sin perder datos)
+def mostrar_twitter_python(cola):
+    print("\nB) Notificaciones de Twitter con 'Python':")
+    for noti in cola:
+        if noti["app"] == "Twitter" and "Python" in noti["mensaje"]:
+            print(f"{noti['hora']} - {noti['mensaje']}")
+
+# C) Pila de notificaciones entre 11:43 y 15:57
+def en_rango(hora, desde, hasta):
+    return desde <= hora <= hasta
+
+def almacenar_en_pila(cola):
+    pila = []
+    for noti in cola:
+        if en_rango(noti["hora"], "11:43", "15:57"):
+            pila.append(noti)
+    return pila
+
+# --------------------------
+# EJECUCIÓN DE LAS FUNCIONES
+# --------------------------
+
+# A) Eliminar Facebook
+co
