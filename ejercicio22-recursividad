@@ -1,0 +1,11 @@
+def usar_la_fuerza(mochila, contador=0):
+    if len(mochila) == 0:
+        print("No se encontró el sable de luz.")
+        return -1
+
+    objeto = mochila[0]
+    if objeto == "sable de luz":
+        print("¡Sable de luz encontrado!")
+        return contador
+
+    return usar_la_fuerza(mochila[1:], contador + 1)
