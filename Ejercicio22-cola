@@ -1,0 +1,42 @@
+# A) Nombre del personaje de la superhéroe "Capitana Marvel"
+def buscar_personaje_por_superheroe(cola, nombre_heroe):
+    for dato in cola:
+        if dato["superheroe"] == nombre_heroe:
+            return dato["personaje"]
+    return None
+
+# B) Mostrar nombres de superhéroes femeninos
+def mostrar_superheroinas(cola):
+    print("\nB) Superhéroes femeninos:")
+    for dato in cola:
+        if dato["genero"] == "F":
+            print("-", dato["superheroe"])
+
+# C) Mostrar nombres de personajes masculinos
+def mostrar_personajes_masculinos(cola):
+    print("\nC) Personajes masculinos:")
+    for dato in cola:
+        if dato["genero"] == "M":
+            print("-", dato["personaje"])
+
+# D) Nombre del superhéroe de "Scott Lang"
+def buscar_superheroe_por_personaje(cola, nombre_personaje):
+    for dato in cola:
+        if dato["personaje"] == nombre_personaje:
+            return dato["superheroe"]
+    return None
+
+# E) Mostrar datos de superhéroes o personajes que empiezan con S
+def mostrar_datos_con_s(cola):
+    print("\nE) Datos de personajes o superhéroes que empiezan con 'S':")
+    for dato in cola:
+        if dato["personaje"].startswith("S") or dato["superheroe"].startswith("S"):
+            print("-", dato)
+
+# F) Ver si está Carol Danvers y su superhéroe
+def buscar_carol_danvers(cola):
+    for dato in cola:
+        if dato["personaje"] == "Carol Danvers":
+            print("\nF) Carol Danvers se encuentra en la cola. Su superhéroe es:", dato["superheroe"])
+            return
+    print("\nF) Carol Danvers no se encuentra en la cola.")
