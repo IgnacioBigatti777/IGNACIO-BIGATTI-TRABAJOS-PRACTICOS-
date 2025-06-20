@@ -1,0 +1,48 @@
+# Pila de personajes del MCU (la cima está al final de la lista)
+pila_personajes = [
+    {"nombre": "Iron Man", "peliculas": 10},
+    {"nombre": "Thor", "peliculas": 9},
+    {"nombre": "Rocket Raccoon", "peliculas": 5},
+    {"nombre": "Black Widow", "peliculas": 7},
+    {"nombre": "Captain America", "peliculas": 11},
+    {"nombre": "Doctor Strange", "peliculas": 4},
+    {"nombre": "Groot", "peliculas": 6},
+    {"nombre": "Hawkeye", "peliculas": 6},
+    {"nombre": "Gamora", "peliculas": 5}
+]
+
+# A) Determinar la posición desde la cima de Rocket Raccoon y Groot
+def posicion_desde_cima(pila, nombre_buscado):
+    for i in range(len(pila) - 1, -1, -1):  # recorre desde el tope
+        if pila[i]["nombre"] == nombre_buscado:
+            return len(pila) - i  # posición desde la cima (1 en adelante)
+    return -1  # si no está
+
+# Llamadas a la función
+pos_rocket = posicion_desde_cima(pila_personajes, "Rocket Raccoon")
+pos_groot = posicion_desde_cima(pila_personajes, "Groot")
+
+print("A) Posición desde la cima:")
+print("Rocket Raccoon está en la posición:", pos_rocket)
+print("Groot está en la posición:", pos_groot)
+
+# B) Personajes con más de 5 películas
+print("\nB) Personajes con más de 5 películas:")
+for personaje in pila_personajes:
+    if personaje["peliculas"] > 5:
+        print("-", personaje["nombre"], "→", personaje["peliculas"], "películas")
+
+# C) Cuántas películas tiene Black Widow
+pelis_bw = 0
+for personaje in pila_personajes:
+    if personaje["nombre"] == "Black Widow":
+        pelis_bw = personaje["peliculas"]
+
+print("\nC) Black Widow participó en", pelis_bw, "películas.")
+
+# D) Mostrar personajes que empiezan con C, D o G
+print("\nD) Personajes que empiezan con C, D o G:")
+for personaje in pila_personajes:
+    inicial = personaje["nombre"][0].upper()
+    if inicial in ['C', 'D', 'G']:
+        print("-", personaje["nombre"])
