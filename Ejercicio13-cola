@@ -1,0 +1,29 @@
+# Pila de trajes (el último es el primero en salir)
+pila_trajes = [
+    {"modelo": "Mark I", "pelicula": "Iron Man", "estado": "Dañado"},
+    {"modelo": "Mark II", "pelicula": "Iron Man", "estado": "Impecable"},
+    {"modelo": "Mark III", "pelicula": "Iron Man", "estado": "Destruido"},
+    {"modelo": "Mark XLII", "pelicula": "Iron Man 3", "estado": "Dañado"},
+    {"modelo": "Mark L", "pelicula": "Infinity War", "estado": "Destruido"},
+    {"modelo": "Mark LXXXV", "pelicula": "Endgame", "estado": "Destruido"}
+]
+
+# a. Mostrar los trajes que quedaron destruidos
+print("Trajes destruidos:")
+for traje in pila_trajes:
+    if traje["estado"] == "Destruido":
+        print("-", traje["modelo"], "en", traje["pelicula"])
+
+# b. Contar cuántos trajes están impecables
+impecables = 0
+for traje in pila_trajes:
+    if traje["estado"] == "Impecable":
+        impecables += 1
+
+print("\nCantidad de trajes impecables:", impecables)
+
+# c. Mostrar el traje que está en la cima de la pila (último agregado)
+if len(pila_trajes) > 0:
+    tope = pila_trajes[-1]
+    print("\nTraje en la cima de la pila:")
+    print("-", tope["modelo"], "usado en", tope["pelicula"], "→", tope["estado"])
