@@ -1,21 +1,17 @@
-def usar_la_fuerza(mochila, contador=0):
-    if len(mochila) == 0:
-        print("No se encontró el sable de luz.")
-        return -1
+def romano_a_decimal(romano):
+    valores = {
+        'I': 1, 'V': 5, 'X': 10,
+        'L': 50, 'C': 100,
+        'D': 500, 'M': 1000
+    }
 
-    objeto = mochila[0]
-    if objeto == "sable de luz":
-        print("¡Sable de luz encontrado!")
-        return contador
+    if len(romano) == 0:
+        return 0
 
-    return usar_la_fuerza(mochila[1:], contador + 1)
+    if len(romano) == 1:
+        return valores[romano]
 
-# Acá está la mochila
-mochila = ["comida", "botiquín", "linterna", "sable de luz", "mapa"]
-
-# Acá llamás a la función
-objetos_revisados = usar_la_fuerza(mochila)
-
-# Mostramos cuántos objetos se sacaron hasta encontrarlo
-if objetos_revisados != -1:
-    print("Se sacaron", objetos_revisados, "objetos hasta encontrar el sable.")
+    if valores[romano[0]] < valores[romano[1]]:
+        return valores[romano[1]] - valores[romano[0]] + romano_a_decimal(romano[2:])
+    else:
+        return valores[romano[0]] + romano_a_decimal(romano[1:])
